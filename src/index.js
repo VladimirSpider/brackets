@@ -5,12 +5,13 @@ module.exports = function check(str, bracketsConfig) {
 
   bracketsConfig.forEach((typeBrackets) => {
     for (let i = 0; i < str.length; i++) {
-      if (str[i] === '|' && typeBrackets[0] === str[i] && !arrayBrackets.includes('|')) {
-        console.log(str[i]);
+      if ((str[i] === '|' && typeBrackets[0] === str[i] && !arrayBrackets.includes('|'))
+        || (str[i] === '7' && typeBrackets[0] === str[i] && !arrayBrackets.includes('7'))
+        || (str[i] === '8' && typeBrackets[0] === str[i] && !arrayBrackets.includes('8'))) {
         arrayBrackets.push(str[i]);
         arrayIndex.push(i);
       }
-      else if (str[i] !== '|' && typeBrackets[0] === str[i]) {
+      else if (str[i] !== '|' && str[i] !== '7' && str[i] !== '8' && typeBrackets[0] === str[i]) {
         arrayBrackets.push(str[i]);
         arrayIndex.push(i);
       } else {
